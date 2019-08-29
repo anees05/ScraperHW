@@ -16,8 +16,8 @@ app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
-mongoose.connect("mongodb://localhost/scraperdb", { useNewUrlParser: true });
+var uri = process.env.MONGODB_URI || "mongodb://localhost/scraperdb"
+mongoose.connect(uri, { useNewUrlParser: true });
 
 
 
